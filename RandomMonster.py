@@ -1,4 +1,5 @@
 import random
+import time
 
 # List of all monsters
 monsters = ["Goliath", "Kraken", "Wraith", "Behemoth", "Gorgon", "Elder Kraken", "Meteor Goliath", "Glacial Behemoth"]
@@ -44,6 +45,10 @@ def print_picks(monster, perks):
 
 # do stuff
 if __name__ == "__main__":
+    print("Make this randomizer yourself by clicking the card on the top right!\nCheck out \"ML Mindset with Jason Hertzog\" on YouTube!\nStarting in:")
+    for i in range(3, 0, -1):
+        print(i)
+        time.sleep(1)
     monster = choose_monster()
     perks = choose_perks(3)
     print_picks(monster, perks)
