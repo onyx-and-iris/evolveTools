@@ -71,7 +71,7 @@ def run_build() -> tuple:
     return generate_output(*[step() for step in steps])
 
 
-def generate_output(monster: str, perks: list) -> tuple:
+def generate_output(monster: str, perks: Iterable) -> tuple:
     output = (
         f"You will play as the {monster.upper()}",
         " with the following perks:",
