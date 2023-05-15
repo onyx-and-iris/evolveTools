@@ -1,5 +1,6 @@
 import random
 import time
+from typing import Iterable
 
 monsters = [
     "Goliath",
@@ -12,7 +13,7 @@ monsters = [
     "Glacial Behemoth",
 ]
 
-perks = [
+perk_lists = [
     [
         "Brawler",
         "Enhanced Senses",
@@ -56,21 +57,21 @@ perks = [
 ]
 
 # Choose monster at random
-def choose_monster():
+def choose_monster() -> str:
     return random.choice(monsters)
 
 
 # Generate perks at random
-def generate_perks():
-    return (random.choice(perk) for perk in perks)
+def generate_perks() -> Iterable:
+    return (random.choice(perk_list) for perk_list in perk_lists)
 
 
-def build_class():
+def run_build() -> tuple:
     steps = (choose_monster, generate_perks)
     return generate_output(*[step() for step in steps])
 
 
-def generate_output(monster, perks):
+def generate_output(monster: str, perks: list) -> tuple:
     output = (
         f"You will play as the {monster.upper()}",
         " with the following perks:",
@@ -82,13 +83,13 @@ def generate_output(monster, perks):
 
 def main():
     print(
-        'Make this randomizer yourself by clicking the card on the top right!\nCheck out "ML Mindset with Jason Hertzog" on YouTube!\nStarting in:'
+        'Generating random monster and perks...'
     )
     for i in range(3, 0, -1):
         print(i)
         time.sleep(1)
 
-    output = build_class()
+    output = run_build()
     print("\n".join(output))
 
 
